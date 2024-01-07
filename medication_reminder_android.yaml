@@ -4,17 +4,17 @@ blueprint:
   domain: automation
   input:
     reminder_time:
-      name: Reminder time
+      name: Reminder time 1
       description: At what time do you want to be reminded
       selector:
         time: {}
     reminder_time_2:
-      name: Reminder time
+      name: Reminder time 2
       description: At what time do you want to be reminded
       selector:
         time: {}
     reminder_time_3:
-      name: Reminder time
+      name: Reminder time 3
       description: At what time do you want to be reminded
       selector:
         time: {}

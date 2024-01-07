@@ -8,6 +8,16 @@ blueprint:
       description: At what time do you want to be reminded
       selector:
         time: {}
+    reminder_time_2:
+      name: Reminder time
+      description: At what time do you want to be reminded
+      selector:
+        time: {}
+    reminder_time_3:
+      name: Reminder time
+      description: At what time do you want to be reminded
+      selector:
+        time: {}
     frequency:
       name: Reminder frequency
       description: How often do you want to be reminded
@@ -120,6 +130,10 @@ variables:
 trigger:
 - platform: time
   at: !input 'reminder_time'
+- platform: time
+  at: !input 'reminder_time_2'
+- platform: time
+  at: !input 'reminder_time_3'
 mode: restart
 condition:
   - condition: template

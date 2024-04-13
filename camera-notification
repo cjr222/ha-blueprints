@@ -82,8 +82,10 @@ variables:
   notifications_enabled_entity: !input notifications_enabled_entity
   notifications_enabled: "{{ notifications_enabled_entity == '' or (states(notifications_enabled_entity) | bool) == True }}"
 
-conditions:
-  - "{{ notifications_enabled }}"
+condition:
+  - condition: and
+    conditions:
+      - "{{ notifications_enabled }}"
   
 action:
   - delay: "{{ delay }}"

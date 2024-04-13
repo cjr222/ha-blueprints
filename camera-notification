@@ -55,12 +55,12 @@ blueprint:
             unit_of_measurement: seconds
             mode: slider
 
-    pre_condition:
-      name: Optional conditions before reminder
-      description: For example skip notification, if door is open
+    notifications_enabled_entity:
+      name: (Optional) Notifications Enabled Entity
+      description: Sensor to enable notifications (entity state should evaluate to True to enable notifications).
+      default: ""
       selector:
-        action: {}
-      default: []    
+        entity:   
 
 trigger:
   platform: state
@@ -79,7 +79,12 @@ variables:
   delay: !input delay
   snapshot_create_file_path: "/config/www/tmp/snapshot_{{ states[camera].object_id }}.jpg"
   snapshot_access_file_path: "{{ snapshot_create_file_path | replace('/config/www','/local') }}"
+  notifications_enabled_entity: !input notifications_enabled_entity
+  notifications_enabled: "{{ notifications_enabled_entity == '' or (states(notifications_enabled_entity) | bool) == True }}"
 
+conditions:
+  - "{{ notifications_enabled }}"
+  
 action:
   - delay: "{{ delay }}"
 

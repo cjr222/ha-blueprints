@@ -55,6 +55,13 @@ blueprint:
             unit_of_measurement: seconds
             mode: slider
 
+    pre_condition:
+      name: Optional conditions before reminder
+      description: For example skip notification, if door is open
+      selector:
+        action: {}
+      default: []    
+
 trigger:
   platform: state
   entity_id: !input motion_sensor

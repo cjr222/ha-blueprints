@@ -318,26 +318,27 @@ action:
         data:
           title: !input notification_title
           message: !input notification_message
-          channel: !input notification_channel
-          group: !input notification_group
-          image: '{{ snapshot_access_file_path }}'
-          clickAction: !input data_clickaction_url
-          attachment:
-            url: '{{ snapshot_access_file_path }}'
-            content_type: JPEG
-          video: !input notification_video
-          sticky: !input notification_sticky
-          color: !input notification_color
-          alert_once: !input notification_alert_once
-          notification_icon: !input notification_icon
-#           entity_id: !input camera
-          push:
-            sound:
-              name: !input notification_sound
-              volume: !input notification_volume
-              critical: "{{ iif(notification_critical, 1, 0) }}"
-          ttl: 0
-          priority: high
+          data:
+            channel: !input notification_channel
+            group: !input notification_group
+            image: '{{ snapshot_access_file_path }}'
+            clickAction: !input data_clickaction_url
+            attachment:
+              url: '{{ snapshot_access_file_path }}'
+              content_type: JPEG
+            video: !input notification_video
+            sticky: !input notification_sticky
+            color: !input notification_color
+            alert_once: !input notification_alert_once
+            notification_icon: !input notification_icon
+#             entity_id: !input camera
+            push:
+              sound:
+                name: !input notification_sound
+                volume: !input notification_volume
+                critical: "{{ iif(notification_critical, 1, 0) }}"
+            ttl: 0
+            priority: high
 - if:
   - condition: template
     value_template: !input save_archive_file

@@ -55,6 +55,10 @@ blueprint:
         device:
           #integration: mobile_app
           multiple: false
+    notification_group:
+      name: Notification Group
+      description: The name of the notification group to call.
+      default: ""
     notification_title:
       name: Notification title
       description: 'Default: "Motion detected!"'
